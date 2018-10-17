@@ -14,8 +14,8 @@ samples <- dba.count(samples,  peakset, score= DBA_SCORE_TMM_READS_EFFECTIVE, su
 dba.show(samples)
 dba.save(samples, file='counts')
 
-dba.plotHeatmap(samples)
-dev.copy(png,'plotHeatmap_count_peakset.png')
+dba.plotPCA(samples)
+dev.copy(png,'plotPCA_count.png')
 dev.off()
 
 
@@ -30,7 +30,7 @@ dba.plotHeatmap(samples , contrast=1, method=DBA_DESEQ2, th=0.1, bUsePval=TRUE)
 dev.copy(png,'plotHeatmap_DEM_YAC_WT.png')
 dev.off()
 
-samples.DB = dba.report(samples , method=c(DBA_EDGER,DBA_DESEQ2), th=1, bCounts=TRUE, bNormalized=TRUE, bCalled=TRUE, file="MACS_DiffBind_WT_YAC")
+samples.DB <- dba.report(samples , method=c(DBA_EDGER,DBA_DESEQ2), th=1, bCounts=TRUE, bNormalized=TRUE, bCalled=TRUE, file="MACS_DiffBind_WT_YAC")
 
 
 ## 6. Annotation ##
